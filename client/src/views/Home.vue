@@ -1,18 +1,32 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home container">
+   <form @submit.prevent="search">
+     <input type="text" name="search" placeholder="Enter Artist Name">     
+        </form>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Itunes from '@/components/Itunes.vue'
+import myPlaylist from '@/components/myPlaylist.vue'
+import router from '../router.js'
 
 export default {
   name: 'home',
+  data() {
+    return {
+      songs: {},
+      myPlaylist: []
+    }
+  },
   components: {
-    HelloWorld
+    Itunes,
+    myPlaylist
+  },
+  methods: {
+    
+    }
   }
-}
+
 </script>
