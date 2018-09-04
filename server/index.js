@@ -4,6 +4,7 @@ require('./db/db-config')
 let server = express();
 let port = 3000
 let cors = require('cors')
+
 server.use(cors())
 server.use(bp.json())
 server.use(bp.urlencoded(({
@@ -13,7 +14,7 @@ server.use(express.static(__dirname + '/../www/'))
 
 
 //ROUTES
-let songRoutes = require('./routes/songs')
+let songRoutes = require('./routes/Songs')
 
 
 server.use('/api/songs', songRoutes)

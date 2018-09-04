@@ -1,8 +1,15 @@
 <template>
   <div class="home container">
-   <form @submit.prevent="search">
-     <input type="text" name="search" placeholder="Enter Artist Name">     
+    <div class="row">
+   <form @submit.prevent="newSearch">
+     <h4><input type="text" class="mt-5" name="search" v-model="artist" placeholder="Enter Artist Name"></h4>  
+     <button type="submit" class="btn btn-success ml-2 search"><h5>Search</h5></button>   
         </form>
+         <itunes></itunes>
+         <br>
+         <myPlaylist></myPlaylist>
+        </div>
+        
   </div>
 </template>
 
@@ -16,17 +23,36 @@ export default {
   name: 'home',
   data() {
     return {
-      songs: {},
-      myPlaylist: []
-    }
-  },
+      
+          artist: ""
+        }
+      },
   components: {
     Itunes,
     myPlaylist
   },
+  computed: {
+songs() {
+  return this.$store.state.songs
+},
+playlist() {
+  return this.$store.state.playlist
+}
+  },
   methods: {
-    
+    newSearch() {
+      this.$store.dispatch('newSearch', this.artist)
+    },
+    addSongs(song) {
+      this.$store.dispatch('addSongs')
+    }
     }
   }
 
 </script>
+<style>
+.home {
+display:flex;
+flex-direction: row;
+}
+</style>

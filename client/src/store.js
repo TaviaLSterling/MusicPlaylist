@@ -10,47 +10,51 @@ let musicApi = Axios.create({
   baseURL: 'https://itunes.apple.com/search?term=',
   timeout: 3000
 })
-
+let myPlaylistApi = Axios.create({
+  baseURL: '//localhost:3000/api/songs',
+  timeout: 3000
+})
 export default new Vuex.Store({
   state: {
-    song: [],
-    songs: {}
+    songs: [],
+    playlist:[],
+  
   },
   mutations: {
-    setSong(state, song) {
-      state.song = song
-    },
-    setSongs(state,songs){
+    setSong(state, songs) {
       state.songs = songs
+    },
+    setPlaylist(state, playlist) {
+      state.playlist = playlist
     }
   },
   actions: {
 getSongs({commit,dispatch}) {
-musicApi.get('/songs')
+myPlaylistApi.get('')
 .then(res => {
-  commit('setSongs',res.data)
+  commit('setPlaylist',res.data)
+ router.push({name:'home'})
 })
 },
-search({dispatch, commit}, artist){
+newSearch({dispatch, commit}, artist){
   musicApi.get(`/${artist}`)
   .then(res => {
     let music = res.data.results.map(s => new Song(s))
     commit('setSong', music)
   })
 },
-addToSongs({dispatch, commit}) {
-  musicApi.post('/songs', obj.song)
-  .then(res =>{
-    dispatch('createSongs', res)
+deleteSong({dispatch,commit}, song) {
+  myPlaylistApi.delete('' + song._id)
+  .then(res => {
+    dispatch('getSongs')
   })
 },
-createSongs({dispatch, commit}, data) {
-  let newPlaylist = []
-  newPlaylist.push(data.data)
-  musicApi.post('',{ songs: newPlaylist})
-  .then(res => {
-    commit('setSongs', res.data)
+addSongs({dispatch, commit}, song) {
+  myPlaylistApi.post('', song)
+  .then( res => {
+    dispatch('getSongs')
   })
-}
+},
+
   }
 })

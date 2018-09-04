@@ -8,7 +8,7 @@ let Songs = require('../models/song')
 // })
 router.get('/', (req, res, next) => {
   Songs.find({
-    id: req.params.id
+   // id: req.params.id
   }).then(slist => {
     res.send(slist)
   }).catch(next)
@@ -31,14 +31,14 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   Songs.findByIdAndUpdate(req.params.id, req.body)
     .then(() => res.send({
-     
+     message: "Updated"
     }))
     .catch(next)
 })
 router.delete('/:id', (req, res, next) => {
   Songs.findByIdAndRemove(req.params.id)
     .then(() => res.send({
-    
+    message: "Song deleted"
     }))
     .catch(next)
 })

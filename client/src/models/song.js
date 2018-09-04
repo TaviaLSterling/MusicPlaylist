@@ -3,7 +3,7 @@ export default class Song {
         this.trackName = data.trackName,
         this.artist = data.artist,
         this.collectionName = data.collectionName,
-        this.album = data.artworkUrl60,
+        this.album = data.artworkUrl60.replace(/60x60/g, "200x200"),
         this.preview = data.previewUrl,
         this.trackId = data.trackId
     }
