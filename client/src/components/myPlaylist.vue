@@ -2,7 +2,7 @@
 <div class="myplaylist container">
   
     <div class="row">
-        <div class="col-sm-4" v-for="data in myplaylist" :key="data.id">
+        <div class="col-sm-4 offset-sm-8" v-for="data in myplaylist" :key="data.id">
             <audio controls>
                 <source :src="data.preview">
             </audio>
