@@ -6,24 +6,26 @@ let schemaName = 'Song'
 let schema = new Schema({
     artist:{
         type: String,
+        // required: true
         
     },
     title:{
         type: String,
+        // required:true
         
         
     },
     preview:{
        type: String,
-    
+        // required:true
     },
     id: {
         type: String,
-       
+    //    required:true
     },
     albumArt: {
         type: String,
-
+        // required:true
     }
     
 })

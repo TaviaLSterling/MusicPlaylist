@@ -7,7 +7,7 @@
         </form>
          <itunes></itunes>
          <br>
-         <myPlaylist></myPlaylist>
+         <Myplaylist></Myplaylist>
         </div>
         
   </div>
@@ -16,7 +16,7 @@
 <script>
 // @ is an alias to /src
 import Itunes from '@/components/Itunes.vue'
-import myPlaylist from '@/components/myPlaylist.vue'
+import Myplaylist from '@/components/Myplaylist.vue'
 import router from '../router.js'
 
 export default {
@@ -29,7 +29,7 @@ export default {
       },
   components: {
     Itunes,
-    myPlaylist
+    Myplaylist
   },
   computed: {
 songs() {

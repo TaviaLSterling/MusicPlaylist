@@ -10,7 +10,7 @@ let musicApi = Axios.create({
   baseURL: 'https://itunes.apple.com/search?term=',
   timeout: 3000
 })
-let myPlaylistApi = Axios.create({
+let MyplaylistApi = Axios.create({
   baseURL: '//localhost:3000/api/songs',
   timeout: 3000
 })
@@ -30,8 +30,9 @@ export default new Vuex.Store({
   },
   actions: {
 getSongs({commit,dispatch}) {
-myPlaylistApi.get('')
+MyplaylistApi.get('/')
 .then(res => {
+  console.log(res.data)
   commit('setPlaylist',res.data)
  router.push({name:'home'})
 })
@@ -44,13 +45,13 @@ newSearch({dispatch, commit}, artist){
   })
 },
 deleteSong({dispatch,commit}, song) {
-  myPlaylistApi.delete('' + song._id)
+  MyplaylistApi.delete('' + song._id)
   .then(res => {
     dispatch('getSongs')
   })
 },
 addSongs({dispatch, commit}, song) {
-  myPlaylistApi.post('', song)
+  MyplaylistApi.post('', song)
   .then( res => {
     dispatch('getSongs')
   })

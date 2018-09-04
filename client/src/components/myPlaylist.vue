@@ -1,13 +1,13 @@
 <template>
-<div class="myPlaylist container">
+<div class="myplaylist container">
     <div class="row">
-        <div class="col-sm-4" v-for="song in myPlaylist" :key="song.id">
+        <div class="col-sm-4" v-for="data in Myplaylist" :key="data.id">
             <audio controls>
-                <source :src="song.preview">
+                <source :src="data.preview">
             </audio>
-            {{song.artist}}
-             {{song.trackName}} 
-             {{song.album}}
+            {{data.artist}}
+             {{data.trackName}} 
+             {{data.album}}
             <button @click="deleteSongs(song)">Delete</button>
          </div>
          </div>
@@ -16,14 +16,16 @@
 
 <script>
 export default {
-  name: "myPlaylist",
-//   data() {
-//     return {};
-//   },
- 
+  name: "Myplaylist",
+  // data() {
+  //   return {};
+  // },
+  mounted() {
+    this.$store.dispatch("getSongs")
+  },
   computed: {
-    myPlaylist() {
-      return this.$store.state.myPlaylist;
+    Myplaylist() {
+      return this.$store.state.myplaylist;
     }
   },
   methods: {
