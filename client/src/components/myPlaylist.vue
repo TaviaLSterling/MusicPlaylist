@@ -1,22 +1,24 @@
 <template>
 <div class="myplaylist container">
+  
     <div class="row">
-        <div class="col-sm-4" v-for="data in Myplaylist" :key="data.id">
+        <div class="col-sm-4" v-for="data in myplaylist" :key="data.id">
             <audio controls>
                 <source :src="data.preview">
             </audio>
             {{data.artist}}
              {{data.trackName}} 
              {{data.album}}
-            <button @click="deleteSongs(song)">Delete</button>
+            <button @click="deleteSong(data)">Delete</button>
          </div>
          </div>
     </div>
+    
 </template>
 
 <script>
 export default {
-  name: "Myplaylist",
+  name: "myplaylist",
   // data() {
   //   return {};
   // },
@@ -24,8 +26,8 @@ export default {
     this.$store.dispatch("getSongs")
   },
   computed: {
-    Myplaylist() {
-      return this.$store.state.myplaylist;
+    myplaylist() {
+      return this.$store.state.playlist;
     }
   },
   methods: {

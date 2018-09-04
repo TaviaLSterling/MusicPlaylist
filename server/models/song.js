@@ -19,10 +19,10 @@ let schema = new Schema({
        type: String,
         // required:true
     },
-    id: {
-        type: String,
+    // id: {
+    //     type: String,
     //    required:true
-    },
+    // },
     albumArt: {
         type: String,
         // required:true

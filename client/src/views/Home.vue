@@ -7,7 +7,7 @@
         </form>
          <itunes></itunes>
          <br>
-         <Myplaylist></Myplaylist>
+         <myplaylist></myplaylist>
         </div>
         
   </div>

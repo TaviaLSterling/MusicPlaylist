@@ -23,7 +23,7 @@ justify-content: center;
 color:white;
    background-image:url('assets/music.jpg');
   background-size: cover;
-  background-repeat:no-repeat;
+ 
 }
 
 </style>
