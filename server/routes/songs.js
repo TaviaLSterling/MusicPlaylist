@@ -31,14 +31,14 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   Songs.findByIdAndUpdate(req.params.id, req.body)
     .then(() => res.send({
-     message: "Updated"
+     message: "Done"
     }))
     .catch(next)
 })
 router.delete('/:id', (req, res, next) => {
   Songs.findByIdAndRemove(req.params.id)
     .then(() => res.send({
-    message: "Song deleted"
+    message: "Song has been deleted"
     }))
     .catch(next)
 })

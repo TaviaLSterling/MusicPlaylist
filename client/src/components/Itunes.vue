@@ -1,12 +1,14 @@
 <template>
 <div class="itunes container">
-    <div class="col-sm-4" v-for="song in songs" :key="song.id">
+  
+    <div class="col-sm-6" v-for="song in songs" :key="song.id">
         <button @click="addSongs(song)">Add</button>
         {{song.artist}} {{song.trackName}}
         <img :src="song.album">
         <audio controls>
             <source :src="song.preview" type="audio/ogg">
             </audio>
+           
             </div>
         </div>
 </template>

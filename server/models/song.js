@@ -5,13 +5,11 @@ let schemaName = 'Song'
 
 let schema = new Schema({
     artist:{
-        type: String,
-        // required: true
-        
+        type: String
     },
     title:{
         type: String,
-        // required:true
+        //required:true
         
         
     },
